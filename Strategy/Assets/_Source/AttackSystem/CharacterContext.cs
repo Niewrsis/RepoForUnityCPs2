@@ -20,12 +20,5 @@ namespace AttackSystem
                 _currentStrategy.PerformAttack(animator);
             }
         }
-
-        public void AttackAnimationEnded()
-        {
-            animator.ResetTrigger(GlobalKeys.FIRST_ATTACK_TRIGGER);
-            animator.ResetTrigger(GlobalKeys.SECOND_ATTACK_TRIGGER);
-            animator.ResetTrigger(GlobalKeys.THIRD_ATTACK_TRIGGER);
-        }
     }
 }

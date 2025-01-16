@@ -1,5 +1,3 @@
-using AttackSystem.Strategies;
-
 namespace AttackSystem
 {
     public class AttackPerformer
@@ -17,20 +15,25 @@ namespace AttackSystem
             _character = character;
             _buttonHolder = buttonHolder;
 
-            Start();
+            Init();
         }
-
-        private void Start()
+        private void Init()
         {
-            _firstStrategy = new FirstAttackStrategy();
-            _secondStrategy = new SecondAttackStrategy();
-            _thirdStrategy = new ThirdAttackStrategy();
-
+            InitStrategies();
+            InitButtons();
+            SelectFirst();
+        }
+        private void InitButtons()
+        {
             _buttonHolder.FirstButton.onClick.AddListener(SelectFirst);
             _buttonHolder.SecondButton.onClick.AddListener(SelectSecond);
             _buttonHolder.ThirdButton.onClick.AddListener(SelectThird);
-
-            SelectFirst();
+        }
+        private void InitStrategies()
+        {
+            _firstStrategy = AttackStrategyFactory.CreateFirstStrategy();
+            _secondStrategy = AttackStrategyFactory.CreateSecondStrategy();
+            _thirdStrategy = AttackStrategyFactory.CreateThirdStrategy();
         }
         private void SelectFirst() => _character.SetStrategy(_firstStrategy);
         private void SelectSecond() => _character.SetStrategy(_secondStrategy);
