@@ -23,9 +23,9 @@ namespace AttackSystem
 
         public void AttackAnimationEnded()
         {
-            animator.ResetTrigger("FirstAttack");
-            animator.ResetTrigger("SecondAttack");
-            animator.ResetTrigger("ThirdAttack");
+            animator.ResetTrigger(GlobalKeys.FIRST_ATTACK_TRIGGER);
+            animator.ResetTrigger(GlobalKeys.SECOND_ATTACK_TRIGGER);
+            animator.ResetTrigger(GlobalKeys.THIRD_ATTACK_TRIGGER);
         }
     }
 }
