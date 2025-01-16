@@ -23,17 +23,17 @@ namespace AttackSystem
             InitButtons();
             SelectFirst();
         }
-        private void InitButtons()
-        {
-            _buttonHolder.FirstButton.onClick.AddListener(SelectFirst);
-            _buttonHolder.SecondButton.onClick.AddListener(SelectSecond);
-            _buttonHolder.ThirdButton.onClick.AddListener(SelectThird);
-        }
         private void InitStrategies()
         {
             _firstStrategy = AttackStrategyFactory.CreateFirstStrategy();
             _secondStrategy = AttackStrategyFactory.CreateSecondStrategy();
             _thirdStrategy = AttackStrategyFactory.CreateThirdStrategy();
+        }
+        private void InitButtons()
+        {
+            _buttonHolder.FirstButton.onClick.AddListener(SelectFirst);
+            _buttonHolder.SecondButton.onClick.AddListener(SelectSecond);
+            _buttonHolder.ThirdButton.onClick.AddListener(SelectThird);
         }
         private void SelectFirst() => _character.SetStrategy(_firstStrategy);
         private void SelectSecond() => _character.SetStrategy(_secondStrategy);
