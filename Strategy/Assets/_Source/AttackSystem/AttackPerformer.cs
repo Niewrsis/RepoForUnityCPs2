@@ -10,24 +10,21 @@ namespace AttackSystem
 
         private CharacterContext _character;
 
-        public AttackPerformer(CharacterContext character, ButtonHolder buttonHolder)
+        public AttackPerformer(CharacterContext character, ButtonHolder buttonHolder, IAttackStrategy firstStrategy, IAttackStrategy secondStrategy, IAttackStrategy thirdStrategy)
         {
             _character = character;
             _buttonHolder = buttonHolder;
+
+            _firstStrategy = firstStrategy;
+            _secondStrategy = secondStrategy;
+            _thirdStrategy = thirdStrategy;
 
             Init();
         }
         private void Init()
         {
-            InitStrategies();
             InitButtons();
             SelectFirst();
-        }
-        private void InitStrategies()
-        {
-            _firstStrategy = AttackStrategyFactory.CreateFirstStrategy();
-            _secondStrategy = AttackStrategyFactory.CreateSecondStrategy();
-            _thirdStrategy = AttackStrategyFactory.CreateThirdStrategy();
         }
         private void InitButtons()
         {

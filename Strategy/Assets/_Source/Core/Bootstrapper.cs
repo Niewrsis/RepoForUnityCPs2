@@ -12,11 +12,21 @@ namespace Core
 
         private AttackPerformer _attackPerformer;
 
+        private IAttackStrategy _firstStrategy, _secondStrategy,_thirdStrategy;
+
         private void Awake()
         {
-            _attackPerformer = new AttackPerformer(character, buttonHolder);
+            InitStrategies();
+
+            _attackPerformer = new AttackPerformer(character, buttonHolder, _firstStrategy, _secondStrategy, _thirdStrategy);
 
             inputListener.Construct(character);
+        }
+        private void InitStrategies()
+        {
+            _firstStrategy = AttackStrategyFactory.CreateFirstStrategy();
+            _secondStrategy = AttackStrategyFactory.CreateSecondStrategy();
+            _thirdStrategy = AttackStrategyFactory.CreateThirdStrategy();
         }
     }
 }
