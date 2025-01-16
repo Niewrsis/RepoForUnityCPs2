@@ -7,4 +7,3 @@ public static class AttackStrategyFactory
     public static IAttackStrategy CreateSecondStrategy() => new SecondAttackStrategy();
     public static IAttackStrategy CreateThirdStrategy() => new ThirdAttackStrategy();
 }
-}
