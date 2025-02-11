@@ -1,4 +1,5 @@
-﻿using HotdogSystem.Types;
+﻿using HotdogSystem.Decorator;
+using HotdogSystem.Types;
 using HotdogSystem2;
 using UnityEngine;
 
@@ -7,12 +8,15 @@ public class DebugClass : MonoBehaviour
     private ClassicHotdog _classicHotdog = new();
     private CeaserHotdog _ceaserHotdog = new();
     private MeatHotdog _meatHotdog = new();
+    private SweetOnionDecorator _sweetOnion;
     
     private void Start()
     {
         /*Debug.Log($"{_classicHotdog.GetName()} - {_classicHotdog.GetCost()}");
         Debug.Log($"{_ceaserHotdog.GetName()} - {_ceaserHotdog.GetCost()}");
-        Debug.Log($"{_meatHotdog.GetName()} - {_meatHotdog.GetCost()}");*/
+        Debug.Log($"{_meatHotdog.GetName()} - {_meatHotdog.GetCost()}");
+        _sweetOnion = new(_ceaserHotdog);
+        Debug.Log($"{_sweetOnion.GetName()} - {_sweetOnion.GetCost()}");*/
 
         var Hotdogs = Resources.LoadAll<HotdogSO>("Hotdogs");
 
